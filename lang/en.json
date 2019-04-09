@@ -1,0 +1,7 @@
+{
+    "EventSegmentNavigation": {
+        "RowActionTooltipDefault": "Apply this row to current segment",
+        "RowActionTooltipWithDimension": "Apply this %s to current segment",
+        "RowActionTooltipTitle": "Update current segment"
+    }
+}

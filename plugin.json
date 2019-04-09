@@ -1,0 +1,29 @@
+{
+    "name": "EventSegmentNavigation",
+    "description": "This plugin allows easy segment generation from Event Categories and Actions",
+    "version": "0.2.0",
+    "theme": false,
+    "require": {
+        "piwik": ">=3.9.1-stable,<4.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Tolriq",
+            "email": "",
+            "homepage": ""
+        }
+    ],
+    "support": {
+        "email": "",
+        "issues": "https://github.com/Tolriq/Matomo-EventSegmentNavigation",
+        "forum": "",
+        "irc": "",
+        "wiki": "",
+        "source": "",
+        "docs": "",
+        "rss": ""
+    },
+    "homepage": "https://github.com/Tolriq/Matomo-EventSegmentNavigation",
+    "license": "GPL v3+",
+    "keywords": []
+}
