@@ -73,7 +73,7 @@
 
     DataTable_RowActions_SegmentVisitorEventLog.prototype.performAction = function (segment, tr, e) {
         if (piwikHelper.isAngularRenderingThePage()) {
-            var dummyUrl = new URL('http://127.0.0.1');
+            var dummyUrl = new URL('http://127.0.0.1'); // Dummy unused URL for hash parameter handling
             dummyUrl.search = window.location.hash.substring(2);
             dummyUrl.searchParams.set('segment', segment);
             window.location.hash = '?' + dummyUrl.searchParams;
