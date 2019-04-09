@@ -11,7 +11,7 @@
 
 (function () {
 
-    let actionName = 'SegmentVisitorEventLog';
+    var actionName = 'SegmentVisitorEventLog';
 
     function getRawSegmentValueFromRow(tr)
     {
@@ -20,7 +20,7 @@
 
     function getDataTableFromApiMethod(apiMethod)
     {
-        let div = $(require('piwik/UI').DataTable.getDataTableByReport(apiMethod));
+        var div = $(require('piwik/UI').DataTable.getDataTableByReport(apiMethod));
         if (div.length && div.data('uiControlObject')) {
             return div.data('uiControlObject');
         }
@@ -39,8 +39,8 @@
             return;
         }
 
-        let dataTable = getDataTableFromApiMethod(apiMethod);
-        let metadata  = getMetadataFromDataTable(dataTable);
+        var dataTable = getDataTableFromApiMethod(apiMethod);
+        var metadata  = getMetadataFromDataTable(dataTable);
 
         if (metadata && metadata.dimension) {
             return metadata.dimension;
@@ -58,7 +58,7 @@
     DataTable_RowActions_SegmentVisitorEventLog.prototype = new DataTable_RowAction();
 
     DataTable_RowActions_SegmentVisitorEventLog.prototype.trigger = function (tr, e, subTableLabel) {
-        let segment = getRawSegmentValueFromRow(tr);
+        var segment = getRawSegmentValueFromRow(tr);
 
         if (this.dataTable.param.segment) {
             segment = decodeURIComponent(this.dataTable.param.segment) + ';' + segment;
@@ -73,7 +73,7 @@
 
     DataTable_RowActions_SegmentVisitorEventLog.prototype.performAction = function (segment, tr, e) {
         if (piwikHelper.isAngularRenderingThePage()) {
-            let dummyUrl = new URL('http://127.0.0.1');
+            var dummyUrl = new URL('http://127.0.0.1');
             dummyUrl.search = window.location.hash.substring(2);
             dummyUrl.searchParams.set('segment', segment);
             window.location.hash = '?' + dummyUrl.searchParams;
@@ -100,15 +100,15 @@
         },
 
         isAvailableOnRow: function (dataTableParams, tr) {
-            let value = getRawSegmentValueFromRow(tr);
+            var value = getRawSegmentValueFromRow(tr);
             if ('undefined' === (typeof value)) {
                 return false;
             }
 
-            let reportTitle = null;
+            var reportTitle = null;
 
-            let apiMethod = $(tr).parents('div.dataTable').last().attr('data-report');
-            let dimension = getDimensionFromApiMethod(apiMethod);
+            var apiMethod = $(tr).parents('div.dataTable').last().attr('data-report');
+            var dimension = getDimensionFromApiMethod(apiMethod);
 
             if (dimension) {
                 reportTitle = _pk_translate('EventSegmentNavigation_RowActionTooltipWithDimension', [dimension])
@@ -129,8 +129,8 @@
             if (dataTable === null && param) {
                 // when segmented visitor log is triggered from the url (not a click on the data table)
                 // we look for the data table instance in the dom
-                let report = param.split(':')[0];
-                let tempTable = getDataTableFromApiMethod(report);
+                var report = param.split(':')[0];
+                var tempTable = getDataTableFromApiMethod(report);
                 if (tempTable) {
                     dataTable = tempTable;
                     if (typeof dataTable.SegmentVisitorEventLogInstance != 'undefined') {
@@ -139,7 +139,7 @@
                 }
             }
 
-            let instance = new DataTable_RowActions_SegmentVisitorEventLog(dataTable);
+            var instance = new DataTable_RowActions_SegmentVisitorEventLog(dataTable);
             if (dataTable !== null) {
                 dataTable.SegmentVisitorEventLogInstance = instance;
             }
